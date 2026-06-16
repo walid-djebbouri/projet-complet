@@ -1,0 +1,60 @@
+<h2>La différence entre Subject et Behaviorsubject</h2>
+
+<ul>
+  <li>
+    <p>
+       <b>Subject()</b> ne nécessite pas de valeur initiale. Il ne stocke pas de valeur, <br>
+                        donc lorsqu'un nouvel abonné s'abonne, il ne reçoit pas immédiatement de valeur,<br>
+                        il doit attendre que de nouvelles valeurs soient émises.<br>
+      <span style="font-size: 20px; color: red">par conséquence une subscription a un Subject affiche juste les next existant au dessous de la subscription</span>
+    </p>
+  </li>
+  <li>
+    <p>
+      <b>BehaviorSubject</b> : Un BehaviorSubject nécessite une valeur initiale. <br>
+                               Il stocke la dernière valeur émise et chaque nouvel abonné recevra cette valeur immédiatement dès son abonnement.
+    </p>
+  </li>
+  <li>
+    <p>
+      <b> ReplaySubject</b> : Un  ReplaySubject est se comporte comme un BehaviorSubject sauf qu'il mémorise toutes les valeurs émises<br>
+      sachant que on peut limiter le nombre de valeur mémoriser lors l'initialisation   <br>
+      et chaque nouvel abonné recevra les derniers  valeur mémorisées .
+    </p>
+  </li>
+</ul>
+
+<h2>mergeMap</h2>
+<p>
+  mergeMap est un opérateur RXJS utilisé pour gérer la concurrence
+  elle remplacera la valeur du flux source par un flux de valeurs renvoyé par une fonction interne
+  lorsque la source émis un nouveau flux la mergeMap consiste a  déclenché la fonction intern meme si l'ancienne flux est
+  en cours d'exécution
+</p>
+
+
+<h2>concatMap</h2>
+
+<p>
+  concatMap est un opérateur RXJS utilisé pour gérer la concurrence
+  il remplacera la valeur du flux source par un flux de valeurs renvoyé par une fonction interne
+  Lorsque la source émet un nouveau flux, l'opérateur concatMap bloque ce nouveau flux jusqu'à ce que le traitement
+  de l'ancien flux par la fonction interne soit terminé. Une fois que le traitement de l'ancien flux est terminé,
+  concatMap déclenche le traitement du nouveau flux par la fonction interne.
+</p>
+
+
+<h2>switchMap</h2>
+<p> switchMap est un opérateur RXJS utilisé pour gérer la concurrence
+ il remplacera la valeur du flux source par un flux de valeurs renvoyé par une fonction interne
+  lorsque la source émis un nouveau flux le switchMap opérateur se désabonne au flux de la fonction de l'ancienne
+  valeur et s'abonne au nouveau flux
+</p>
+
+<h2>exhaustMap</h2>
+<p>
+  exhaustMap est un opérateur RXJS utilisé pour gérer la concurrence
+  il remplacera la valeur du flux source par un flux de valeurs renvoyé par une fonction interne
+  la exhaustMap consiste a  ignorer les valeurs du flux source jusqu'à ce que la fonction interne termine
+  le traitement de l'ancienne flux
+</p>

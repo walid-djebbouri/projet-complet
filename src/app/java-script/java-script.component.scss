@@ -1,0 +1,30 @@
+div span {
+  font-weight: bold;
+  color: brown;
+}
+
+div > span {
+  color: aqua;
+}
+
+p > span {
+  color: yellow;
+}
+div ~ p {
+  color: chartreuse;
+}
+p + span {
+  color: red;
+}
+
+#formulaire a[href] {
+
+
+}
+#formulaire a img {
+  border: 3px solid olivedrab;
+}
+
+section > h1 {
+  color: olivedrab;
+}

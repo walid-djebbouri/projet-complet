@@ -1,0 +1,79 @@
+
+<h1>{{envName}} {{env}} From Tomcat Server </h1>
+<h1> is this a production environment ? {{env}} || {{envName}}
+</h1>
+<ng-container>
+  <p  ><b> use the ng serve --configuration=walid to running an angular app in different environments </b>  </p>
+  <p><b> use the ng build --configuration walid to build an angular app in different environments </b>  </p>
+  <p><b> use the lite-server --baseDir="dist/project-name  to run the built angular app </b>  </p>
+
+  <p>
+    écrire du code qui adhère au principe d'inversion de dépendance .
+    Cela signifie que nous devrions « dépendre des abstractions et ne pas dépendre des concrétions ».
+    Commençons par déclarer quelques interfaces (abstractions).
+  </p>
+
+
+  <p>
+    The Injector uses Injection Token to search for Dependency in the Providers. <br>
+    It then creates an instance of the dependency and injects it into the consumer
+  </p>
+  <p>
+    Angular Provides an instance of Injector & Provider to every component & directive<br>
+    in the application ( Consumers )
+  </p>
+  <p>
+    The dependencies are registered with the Provider. This is done in the Providers <br>
+    metadata of the Injector.
+  </p>
+  <p>
+    <span  style="font-size: 18px; font-weight: bold ; color: red">The Provider also tells the Angular Injector how to create the instance of dependency.</span> <br>
+    There are four ways by which you can create the dependency:<br>
+    They are Class Provider (useClass),<br>
+    Value Provider (useValue ), <br>
+    Factory Provider ( useFactory ),<br>
+    and Aliased Class Provider ( useExisting).<br>
+  </p>
+  <pre>
+      En résumé, l'injection de dépendances dans Angular permet de
+          1- gérer efficacement les dépendances entre les composants,
+          2- favoriser la réutilisation du code
+          3- simplifier les tests unitaires.
+          4- développer des applications Angular bien structurées et faciles à maintenir.
+          5- Garantir que le service est un singleton au sein de l'application -si nécessaire-
+
+      /******************************************************************************************/
+     L'utilité principale du pattern Singleton est de contrôler la création d'objets afin de s'assurer qu'il n'y a qu'une seule instance de cette classe dans toute l'application.
+     Il est couramment utilisé lorsque vous avez besoin d'une ressource partagée unique,
+          1- comme une configuration globale,
+          2- un gestionnaire de journaux,
+          3- une connexion à une base de données
+          4- ou un pool de connexions.
+
+    How to implement IoC
+          In object-oriented programming like Typescript, there are several basic techniques to implement inversion of control. These are:
+
+          1- using a factory pattern
+          2- using a service locator pattern
+          3- using a dependency injection of any given below type:
+              -a a constructor injection
+              -b a setter injection
+              -c an interface injection
+
+      En termes simples, l'Inversion de Contrôle signifie que le contrôle sur le flux d'exécution d'un programme est inversé par rapport à la méthode classique de programmation.
+    Au lieu que votre code principal soit responsable d'appeler des fonctions ou des méthodes d'autres composants, vous déléguez ce contrôle à un conteneur ou un framework.
+
+      En résumé, l'Inversion de Contrôle est un concept qui consiste à déléguer le contrôle sur la création et la gestion des composants à un système externe. Cela améliore la modularité,
+    la réutilisabilité et la facilité de maintenance du code. L'injection de dépendance est l'un des mécanismes couramment utilisés pour mettre en œuvre l'IoC dans la pratique.
+  </pre>
+  <p>
+    useFactory - Use a factory method to determine which dependency to use based on a dynamic value
+  </p>
+  <h1> MicroServices </h1>
+  <p  >
+    L'idée derrière les systèmes distribués est de diviser de grands designs monolithiques en de petits programmes
+    indépendants qui communiquent entre eux pour échanger des données et effectuer des opérations.
+  </p>
+  <button (click)="helloClic()" >Hello Clic</button>
+</ng-container>
+

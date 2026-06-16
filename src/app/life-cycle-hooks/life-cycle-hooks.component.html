@@ -1,0 +1,118 @@
+<h1  (click)="onClick()" >  change detection {{name}} </h1>
+
+<div style="font-size: 18px">
+  <h3>la différence entre @ContentChild et @VewChild
+  le  @ContentChild nous permet de  récupérer le projected content dans le child component et pas dans le parent component
+    donc ElementRef fait référence au projected content
+    <br>
+  le  @VewChild nous permet de récupérer le child component dans le partent component
+    donc le ElementRef fait référence au child component imbriquer dans le parent component
+
+  </h3>
+</div>
+<app-first-child  [prenom]="prenom " #viewChild
+>
+  <p #content style="background-color: coral" >
+    dans in contexte angular le projected content fait reference au contenu HTML <br>
+    passé du parent to child <br>
+    et a chaque fois ce contenu subi des changements le lifeCycle hooks ngAfterContentChecked
+    se déclenche
+  </p>
+
+
+
+</app-first-child>
+<p   > {{name}} change detection est un mécanisme par lequel Angular s'assure que le template est synchronisé avec le composant (la classe) </p>
+<p >
+  change detection cycle est exécuté a chaque fois que angular detecte</p>
+  <ul>
+    <li> input change </li>
+    <li> dom events</li>
+    <li> time events comme       setTimeout(() =>  , 5000) </li>
+    <li> http request</li>
+  </ul>
+
+<p>lors le change detection cycle angular vérifier tous les input les bound property dans le template {{}</p>
+<p> et s'il détecte un changement il met a jour le template</p>
+
+<p>L'ordre de d'exécution des Hooks</p>
+<pre>
+  1-  Le constructeur CoNSTRuCOR : il est souvent utilisé pour injecter les dépendances
+      * lors l'invocation du constructeur , les inputs ne seront pas disponible a l'utilisation ni les childs ni les projected
+      content
+
+  2-  ngOnChanges est exécuté juste après le constructeur et à chaque fois  les  @Input sont modifiées
+
+  3- ngOnInt -pour initialiser les propriétés d'un component - il est exécuté qu'une seule fois et dans le ngOnInt on aura un accès a toutes les proprietés du component @input http request
+  Mais n'oubliez pas que, au moment où ngOnInit est appelé, aucune des composantes enfants ni le contenu projeté ne sont disponibles. Par conséquent, toutes les propriétés
+  que nous décorons avec @ViewChild, @ViewChildren, @ContentChild et @ContentChildren ne seront pas disponibles pour être utilisées à ce stade
+
+  4- ngDoCheck est invoqué a chaque fois qu'il y a un event déclenché meme si cet event ne change rien dans les input
+
+  5- ngAfterContentInit (for component only )
+        Life cycle hook is called after the
+        Component's projected content has been fully initialized.
+
+        Angular also updates the properties decorated with the
+        @ContentChild and @ContentChildren before raising this hook.
+
+        This hook is also raised, even if there is no content to project.
+
+        The content here refers to the external content injected from the
+        parent component via Content Projection.
+
+        The Angular Components can include the ng-content element,
+        which acts as a placeholder for the content from the parent.
+
+  6- ngAfterContentChecked
+        Life cycle hook is called after the
+        Component's projected content has been fully initialized.
+
+        Angular also updates the properties decorated with the
+        @ContentChild and @ContentChildren before raising this hook.
+
+        This hook is also raised, even if there is no content to project.
+
+        The content here refers to the external content injected from the
+        parent component via Content Projection.
+
+        The Angular Components can include the ng-content element,
+        which acts as a placeholder for the content from the parent.
+
+  7- ngAfterViewInit hook is called after the Component's View & all its
+        child views are fully initialized.
+
+        Angular also updates the properties
+        decorated with the @ViewChild & @ViewChildren properties
+        before raising this hook.
+
+        The View here refers to the view template of the current component
+        and all its child components & directives.
+
+        This hook is called during the first change detection cycle, where
+        angular initializes the view for the first time
+        At this point all the lifecycle hook methods & change detection all
+        child components & directives are processed & Component is
+        completely ready.
+
+        This is a component only hook.
+
+
+  8- ngAfterViewChecked The Angular fires this hook after it checks & updates the component's
+        views and child views.
+
+        This event is fired after the ngAfterViewInit
+        and after that during every change detection cycle.
+
+        This hook is very similar to the ngAfterViewInit hook. Both are
+        called after all the child components & directives are initialized and
+        updated.
+
+        Only difference is that ngAfterViewChecked is raised during every
+        change detection cycle.
+
+        This is a component only hook.
+</pre>
+
+<app-rxjs-component></app-rxjs-component>
+

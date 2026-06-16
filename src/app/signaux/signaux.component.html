@@ -1,0 +1,52 @@
+<h1>Detecte Change Cycle</h1>
+<ul>
+  <li>
+    <p>
+      La détection de changement est le mécanisme qui permet à Angular de synchroniser le DOM avec l’état de la classe TypeScript.
+    </p>
+  </li>
+  <li>
+    <p>
+      La détection de changement se déclenche à chaque fois qu’un événement DOM survient, qu’une valeur d’entrée (@Input) change, qu’une requête HTTP reçoit une réponse, qu’un Observable émet une nouvelle valeur ou qu’une fonction de type setTimeout est exécutée.
+    </p>
+  </li>
+  <li>
+    <p>
+      Le  ChangeDetectionStrategy.OnPush bloque la detection de changement en cas de changement de référence de @Input(), callback fonction comme setTimeOut , ou les observables qui n'utilisent pas le pipe Async pour gérer leurs abonnement
+    </p>
+  </li>
+  <li>
+    <p>
+      InputSignal est la combinaison du concept de Signal avec le décorateur @Input(), ce qui permet de recevoir des entrées réactives sous la forme d’un type InputSignal  &lt;T&gt;
+    </p>
+  </li>
+  <li>
+    <p>
+      Pour créer un InputSignal il faut utiliser la syntaxe suivante <br>
+    </p>
+      <ol>
+          <li>
+            prenom: InputSignal&lt;string&gt; = input('djebbouri', &#123; transform: (prenom) =&gt; `$&#123;prenom&#125;_hello` &#125;);
+          </li>
+        <br><br><br>
+          <li>
+            et Pour utiliser ce InputSignal n'oublie pas d'ajouter des () dans chaque appel prenom()
+          </li>
+      </ol>
+
+
+  </li>
+  <li>
+    <p></p>
+  </li>
+  <li>
+    <p></p>
+  </li>
+  <li>
+    <p></p>
+  </li>
+</ul>
+<p>
+
+
+</p>

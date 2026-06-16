@@ -1,0 +1,22 @@
+.vip {
+   font-weight: bold ;
+    color: red;
+}
+
+iframe {
+  width: 750px
+;
+  height: 500px;
+}
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  max-width: 50%; /* Assurez-vous que les images ne dépassent pas la largeur du conteneur */
+  margin: 10px; /* Ajoutez une marge entre les images si nécessaire */
+}

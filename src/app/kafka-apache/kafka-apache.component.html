@@ -1,0 +1,41 @@
+<h1>Kafka Apache</h1>
+<h4>Définition</h4>
+<p>
+  kafka apache est une plateforme  de streaming distribuée
+  <br>
+  <b>Kafka est un ensemble de machines travaillant ensemble pour pouvoir gérer et traiter des données infinies en temps réel</b>
+</p>
+<ul>
+  <h3>La messagerie</h3>
+  <li>
+    Producteur : Qui produit et envoie les messages à <span class="vip">une ou plusieurs files d'attente</span>  ;
+  </li>
+  <li>
+    File d'attente : Une structure de données tampon, qui reçoit (des producteurs) et délivre des messages (aux consommateurs) <br>
+    de manière FIFO <span class="vip">(First-In First-Out)</span>. <br>
+    Lorsqu'un message est remis, il est définitivement supprimé de la file d'attente, il n'y a <span class="vip" > aucune chance de le récupérer</span> ;
+  </li>
+  <li>
+    Consommateur : Qui est abonné à <span class="vip" > une ou plusieurs files d'attente et reçoit ses messages une fois publiés.</span>
+  </li>
+  <div  class="image-container">
+    <img src="assets/kafka-apache.webp" alt="kafka" >
+    <br>
+    <img src="assets/cluster.webp" >
+  </div>
+
+  <p>
+    Chaque cluster contient plusieurs Broker et chaque Broker contient au moins un partition d'un topic cela veut dire
+    <br>
+    qu'une partition d'un topic est répliqué sur plusieurs Broker pour garantir la maintenabilité du système
+    <br>
+    et parmi les partitions répliqué il y a une seule partition considéré comme un leader et c'est la seule partition
+    <br>
+    qui subi des opérations d'écriture les autres seront synchronisé avec le leader
+    <br>
+    on cas ou la partition leader tombe en panne c'est au zookeeper de élire une nouvelle partition leader
+  </p>
+  
+
+
+</ul>
